@@ -1,0 +1,61 @@
+version: "3.1"
+
+rules:
+  - rule: Say goodbye anytime the user says goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Say 'I am a bot' anytime the user challenges
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
+
+  # ------------------------------------------------
+  # Rules for restaurant form
+  # Activations rules
+  - rule: activate ask first item form
+    steps:
+      - intent: request_first_item # intent that triggers form activation
+      - action: ask_first_item_form # run the form
+      - active_loop: ask_first_item_form # this form is active
+
+  - rule: activate handle recommandation form
+    steps:
+      - intent: choose_from_recommandation
+      - action: handle_recommandation_form 
+      - active_loop: handle_recommandation_form 
+
+  - rule: activate finish order form
+    steps:
+      - intent: request_finish_order 
+      - action: finish_order_form 
+      - active_loop: finish_order_form
+
+  # ------------------------------------------------
+  # Submit rules
+  - rule: submit form first item form # submits the first item form, then calls action server to run the fetch_recommandation method and fills slots recommended_items with data
+    condition:
+      - active_loop: ask_first_item_form # this form must be active
+    steps:
+      - action: ask_first_item_form # run the form
+      - active_loop: null # the form is no longer active because it has been filled
+      - action : action_fetch_recommandation
+      - action: utter_choice_value # action to take after the form is complete
+
+  - rule: submit form handle recommandation form
+    condition:
+      - active_loop: handle_recommandation_form 
+    steps:
+      - action: handle_recommandation_form 
+      - active_loop: null 
+      - action: utter_last_choice_value 
+  
+  - rule: submit form finish order form
+    condition:
+      - active_loop: finish_order_form 
+    steps:
+      - action: finish_order_form 
+      - active_loop: null 
+      - action: utter_slots_values 
+      - action: utter_submit

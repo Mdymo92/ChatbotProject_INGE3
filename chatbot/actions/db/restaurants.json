@@ -1,0 +1,37 @@
+{
+    "1":{
+        "restaurant_name": "Vapiano",
+        "restaurant_address": "36 Rue Marbeuf, 75008 Paris",
+        "restaurant_phone": "0184567089"
+    },
+    "2":{
+        "restaurant_name": "Le Petit Cambodge",
+        "restaurant_address": "20 Rue Alibert, 75010 Paris",
+        "restaurant_phone": "0184567089"
+    },
+    "3":{
+        "restaurant_name": "Le Bouillon Chartier",
+        "restaurant_address": "7 Rue du Faubourg Montmartre, 75009 Paris",
+        "restaurant_phone": "0184567089"
+    },
+    "4":{
+        "restaurant_name": "Le Bouillon Belge",
+        "restaurant_address": "6 Rue Planchat, 75020 Paris",
+        "restaurant_phone": "0184567089"
+    },
+    "5":{
+        "restaurant_name": "Le Bouillon Racine",
+        "restaurant_address": "3 Rue Racine, 75006 Paris",
+        "restaurant_phone": "0184567089"
+    },
+    "6":{
+        "restaurant_name": "Le Bouillon Pigalle",
+        "restaurant_address": "22 Boulevard de Clichy, 75018 Paris",
+        "restaurant_phone": "0184567089"
+    },
+    "7":{
+        "restaurant_name": "Le Bouillon Julien",
+        "restaurant_address": "16 Rue du Faubourg Saint-Denis, 75010 Paris",
+        "restaurant_phone": "0184567089"
+    }
+}

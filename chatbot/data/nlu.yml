@@ -1,0 +1,255 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - hey
+      - hello
+      - hi
+      - hello there
+      - good morning
+      - good evening
+      - moin
+      - hey there
+      - let's go
+      - hey dude
+      - goodmorning
+      - goodevening
+      - good afternoon
+
+  - intent: goodbye
+    examples: |
+      - cu
+      - good by
+      - cee you later
+      - good night
+      - bye
+      - goodbye
+      - have a nice day
+      - see you around
+      - bye bye
+      - see you later
+
+  - intent: affirm
+    examples: |
+      - yes
+      - indeed
+      - of course
+      - that sounds good
+      - correct
+      - ye
+      - yea
+      - sure
+      - yeah
+      - yes sure
+      - y
+      - absolutely
+      - affirmative
+      - agreed
+      - definitely
+      - exactly
+      - for sure
+      - gladly
+      - I agree
+      - I'm sure
+      - most certainly
+      - no doubt
+      - okay
+      - positively
+      - roger that
+      - sure thing
+      - that's right
+      - without a doubt
+
+  - intent: deny
+    examples: |
+      - no
+      - n
+      - never
+      - I don't think so
+      - don't like that
+      - no way
+      - not really
+      - nope
+      - I'm sorry, but no
+      - I'm afraid not
+      - that's not what I want
+      - I disagree
+      - I can't do that
+      - that's not possible
+      - I'm not interested
+      - I'm not comfortable with that
+      - I don't agree with that
+      - that's not my style
+      - I don't think that's a good idea
+      - I'm not feeling it
+      - that's not what I had in mind
+      - I'm not in the mood for that
+      - I'm not up for that
+
+  - intent: mood_great
+    examples: |
+      - perfect
+      - great
+      - amazing
+      - feeling like a king
+      - wonderful
+      - I am feeling very good
+      - I am great
+      - I am amazing
+      - I am going to save the world
+      - super stoked
+      - extremely good
+      - so so perfect
+      - so good
+      - so perfect
+
+  - intent: mood_unhappy
+    examples: |
+      - my day was horrible
+      - I am sad
+      - I don't feel very well
+      - I am disappointed
+      - super sad
+      - I'm so sad
+      - sad
+      - very sad
+      - unhappy
+      - not good
+      - not very good
+      - extremly sad
+      - so saad
+      - so sad
+
+  - intent: bot_challenge
+    examples: |
+      - are you a bot?
+      - are you a human?
+      - am I talking to a bot?
+      - am I talking to a human?
+
+  - intent: request_first_item
+    examples: |
+      - id like to order
+      - id like to order [pasta](food)
+      - id like to order [pizza](food)
+      - id like to order [soup](food)
+      - id like to order [salad](food)
+      - id like to order [fish](food)
+      - id like to order [meat](food)
+      - id like to order [chicken](food)
+      - id like to order [beef](food)
+      - id like to order [gnocchi](food)
+
+  - intent: request_recommandation
+    examples: |
+      - can you recommend me something
+      - can you recommend me something [italian](cuisine)
+      - can you recommend me something [french](cuisine)
+      - can you recommend me something [chinese](cuisine)
+      - can you recommend me something [mediterranean](cuisine)
+      - can you recommend me something [caribbean](cuisine)
+      - can you recommend me something [swedish](cuisine)
+
+  - intent: choose_from_recommandation
+    examples: |
+      - i would like to choose
+      - i think i prefer
+      - from the recommandation i would like to choose 
+
+
+  - intent: request_finish_order
+    examples: |
+      - i would like to finish my order
+      - i would like to finish my order now
+      - i would like to finish my order
+
+  - intent: inform
+    examples: |
+      - [afghan](cuisine) food
+      - [african](cuisine) food
+      - [american](cuisine) food
+      - [asian](cuisine) food
+      - how bout [asian oriental](cuisine)
+      - what about [indian](cuisine) food
+      - what about [italian](cuisine) food
+      - what about [mexican](cuisine) food
+      - uh how about [turkish](cuisine) type of food
+      - um [english](cuisine)
+      - im looking for [tuscan](cuisine) food
+      - id like [moroccan](cuisine) food
+      - id like [thai](cuisine) food
+      - id like [vietnamese](cuisine) food
+      - id like [japanese](cuisine) food
+      - id like [spanish](cuisine) food
+      - id like [german](cuisine) food
+      - id like [greek](cuisine) food
+      - id like [french](cuisine) food
+      - id like [korean](cuisine) food
+      - for ten people
+      - 2 people
+      - for three people
+      - just one person
+      - for 1 person 
+      - book for seven people
+      - 2 please
+      - nine people
+      - for 4 people
+      - for 6 people
+      - for 8 people
+      - for 5 people
+      - id like [pasta](food)
+      - id like [pizza](food)
+      - id like [soup](food)
+      - id like [salad](food)
+      - id like [fish](food)
+      - id like [meat](food)
+      - id like [chicken](food)
+      - id like [beef](food)
+      - id like [gnocchi](food)
+      - [123 sesame street](address)
+      - adress is [345 evelynn street New York](address)
+      - my address is [789 Maple Street](address)
+      - my address is [1010 Pine Avenue](address)
+      - my address is [1111 Elm Street](address)
+      - my address is [1234 Main Street, New York](address)
+      - my address is [5678 Broadway, Los Angeles](address)
+      - my address is [9101 Market Street, San Francisco](address)
+      - my address is [1212 5th Avenue, Seattle](address)
+      - my address is [1313 Elm Street, Chicago](address)
+      - my address is [1414 Maple Avenue, Houston](address)
+      - my address is [1515 Pine Road, Miami](address)
+      - my address is [1616 Cedar Road, Boston](address)
+      - my address is [1717 Birch Lane, Philadelphia](address)
+      - my address is [1818 Oak Street, Atlanta](address)
+      - my adress is [123 sesame street](address)
+      - my adress is [345 evelynn street New York](address)
+      - my address is [789 Maple Street](address)
+      - my address is [1010 Pine Avenue](address)
+      - my address is [1111 Elm Street](address)
+      - my address is [1234 Main Street, New York](address)
+      - my address is [5678 Broadway, Los Angeles](address)
+      - my address is [9101 Market Street, San Francisco](address)
+      - my address is [1212 5th Avenue, Seattle](address)
+      - my address is [1313 Elm Street, Chicago](address)
+      - my address is [1414 Maple Avenue, Houston](address)
+      - my address is [1515 Pine Road, Miami](address)
+      - my address is [1616 Cedar Road, Boston](address)
+      - my address is [1717 Birch Lane, Philadelphia](address)
+      - my address is [1818 Oak Street, Atlanta](address)
+      - my address is [1 Rue de la Paix, Paris](address)
+      - my address is [2 Rue de Rivoli, Paris](address)
+      - my address is [3 Rue de la Pompe, Paris](address)
+      - my address is [4 Rue de la Roquette, Paris](address)
+      - my address is [5 Rue de la République, Marseille](address)
+      - my address is [6 Rue de la Liberté, Lyon](address)
+      - my address is [7 Rue de la Gare, Lille](address)
+      - my address is [8 Rue de la Victoire, Toulouse](address)
+      - my address is [9 Rue de la Paix, Nice](address)
+      - [10 Rue de la Madeleine, Bordeaux](address)
+      - it is [0645675834](phone_number)
+      - number is [0645675834](phone_number)
+      - my phone number is [0612345678](phone_number)
+      - my phone number is [0678901234](phone_number)
+      - my number is [0654321098](phone_number)
+      - you can reach me at [0687654321](phone_number)

@@ -1,0 +1,8 @@
+.vscode
+chatbot/results/
+chatbot/train_test_split/
+
+chatbot/.rasa/*
+
+test
+chatbot/.rasa/cache

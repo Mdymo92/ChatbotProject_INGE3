@@ -1,0 +1,75 @@
+{
+    "1": {
+        "product_name": "Pasta",
+        "restaurant_id": 1,
+        "product_category": "Italian",
+        "quantity": 10
+    },
+    "2": {
+        "product_name": "Pizza",
+        "restaurant_id": 1,
+        "product_category": "Italian",
+        "quantity": 10
+    },
+    "3": {
+        "product_name": "Burger",
+        "restaurant_id": 2,
+        "product_category": "American",
+        "quantity": 10
+    },
+    "4": {
+        "product_name": "Hot Dog",
+        "restaurant_id": 2,
+        "product_category": "American",
+        "quantity": 10
+    },
+    "5": {
+        "product_name": "Sushi",
+        "restaurant_id": 3,
+        "product_category": "Japanese",
+        "quantity": 10
+    },
+    "6": {
+        "product_name": "Ramen",
+        "restaurant_id": 3,
+        "product_category": "Japanese",
+        "quantity": 10
+    },
+    "7": {
+        "product_name": "Taco",
+        "restaurant_id": 4,
+        "product_category": "Mexican",
+        "quantity": 10
+    },
+    "8": {
+        "product_name": "Burrito",
+        "restaurant_id": 4,
+        "product_category": "Mexican",
+        "quantity": 10
+    },
+    "9": {
+        "product_name": "Beef",
+        "restaurant_id": 5,
+        "product_category": "French",
+        "quantity": 10
+    },
+    "10": {
+        "product_name": "Chicken",
+        "restaurant_id": 5,
+        "product_category": "French",
+        "quantity": 10
+    },
+    "11": {
+        "product_name": "Lasagna",
+        "restaurant_id": 1,
+        "product_category": "Italian",
+        "quantity": 0
+    },
+    "12": {
+        "product_name": "Fettucine",
+        "restaurant_id": 1,
+        "product_category": "Italian",
+        "quantity": 1
+    }
+
+}

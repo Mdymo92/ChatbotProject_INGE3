@@ -1,0 +1,179 @@
+version: "3.1"
+
+# actions
+actions:
+  - action_fetch_recommandation
+  - action_set_user_choice
+  - validate_handle_recommandation_form
+
+events:
+  - Restarted
+
+# ------------------------------------------------
+forms:
+  ask_first_item_form: # used to ask for first item triggers action_fetch_recommandation when filled
+    required_slots:
+        - cuisine
+        - menu_item
+
+
+  handle_recommandation_form: # used to handle recommandation triggers utter_last_choice_value when filled
+    required_slots:
+        - user_choice
+
+  finish_order_form: # used to finish order triggers utter_slots_values when filled
+    required_slots:
+        - address
+        - phone_number
+        - confirmation
+
+# ------------------------------------------------
+# entities to be extracted by classifier
+entities:
+  - cuisine
+  - food
+  - address
+  - phone_number
+
+# slots that will be used to store the information
+slots:
+  cuisine:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: cuisine
+  menu_item:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: food
+  address:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: address
+  phone_number:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: phone_number
+  confirmation:
+    type: bool
+    influence_conversation: false
+    mappings: # intent dependant mapping filled by affirm or deny
+    - type: from_intent
+      intent: affirm
+      value: true
+      conditions:
+       - active_loop: finish_order_form
+         requested_slot: confirmation
+    - type: from_intent
+      intent: deny
+      value: false
+      conditions:
+      - active_loop: finish_order_form
+        requested_slot: confirmation
+  recommanded_items:
+    type: list
+    influence_conversation: false
+    mappings:
+    - type: custom # custom mapping used only to store recommand items
+  user_choice:
+    type: text # used to store user_choice  from recommanded items, custom mapping handled by action_set_user_choice
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: food
+      conditions:
+      - active_loop: handle_recommandation_form
+        requested_slot: user_choice
+
+# ------------------------------------------------
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+
+  - request_first_item
+  - request_recommandation
+  - choose_from_recommandation
+  - request_finish_order
+
+  - inform
+
+# ------------------------------------------------
+# utterances
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+# utterances used to fill slots format : utter_ask_{slot_name}
+  utter_ask_cuisine:
+    - text: "What cuisine?"
+  utter_ask_menu_item:
+    - text: "What dish do you want to order?"
+  utter_ask_address:
+    - text: "What is your address?"
+  utter_ask_phone_number:
+    - text: "What is your phone number?"
+  utter_ask_confirmation:
+    - text: "Are all of these values correct : \n
+            - Cuisine: {cuisine}\n
+            - Dish: {menu_item}\n
+            - Address: {address}\n
+            - Phone Number: {phone_number} "
+  utter_ask_recommanded_items:
+    - text: "I recommend these options : {recommanded_items} !"
+  utter_ask_user_choice:
+    - text: "Here are the top 3 recommanded items: {recommanded_items}. \n
+            Please choose one of them"
+
+# utterances for buttons and slot filling
+  
+
+# utterances for submitting rules 
+
+  utter_choice_value: # returns first form infos
+  - text: "You have chosen : \n
+            - Cuisine: {cuisine}\n
+            - Items: {recommanded_items}\n"
+
+  utter_last_choice_value: # returns chosen item from recommanded items
+  - text: "You have chosen : {user_choice}"
+
+  utter_slots_values: # returns final form infos 
+  - text: "I am going to run a restaurant search using the following parameters:\n
+            - Cuisine: {cuisine}\n
+            - Dish: {menu_item}\n
+            - Address: {address}\n
+            - Phone Number: {phone_number} "
+
+  utter_submit: # ends final form and confirms order
+  - text: "All done! Your choice is being processed."
+
+
+# ------------------------------------------------
+# configuration for Rasa Core
+session_config:
+  session_expiration_time: 5
+  carry_over_slots_to_new_session: false # disables slot carry over when restarting the bot or when session expires
